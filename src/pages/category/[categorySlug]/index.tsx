@@ -11,10 +11,10 @@ export default function Page() {
   const { useQuery, usePosts, useCategory } = client;
   const { query = {} } = useRouter();
   const { categorySlug, paginationTerm, categoryCursor } = query;
-  const generalSettings = useQuery().generalSettings;
+  const generalSettings : any = useQuery().generalSettings;
   const category = useCategory();
   const isBefore = paginationTerm === 'before';
-  const posts = usePosts({
+  const posts : any = usePosts({
     after: !isBefore ? (categoryCursor as string) : undefined,
     before: isBefore ? (categoryCursor as string) : undefined,
     first: !isBefore ? POSTS_PER_PAGE : undefined,
@@ -35,7 +35,7 @@ export default function Page() {
       <main className="content content-single">
         <div className="wrap">
           <h2>Category: {category?.name}</h2>
-          <Posts posts={posts.nodes} />
+          <Posts posts={posts?.nodes} />
 
           <Pagination
             pageInfo={posts.pageInfo}

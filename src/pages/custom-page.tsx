@@ -6,17 +6,17 @@ import Head from 'next/head';
 
 export default function Page() {
   const { useQuery } = client;
-  const generalSettings = useQuery().generalSettings;
+  const generalSettings : any = useQuery().generalSettings;
 
   return (
     <>
       <Header
-        title={generalSettings.title}
-        description={generalSettings.description}
+        title={generalSettings?.title}
+        description={generalSettings?.description}
       />
 
       <Head>
-        <title>Custom Page - {generalSettings.title}</title>
+        <title>Custom Page - {generalSettings?.title}</title>
       </Head>
 
       <Hero title="Custom Page" />
@@ -37,7 +37,7 @@ export default function Page() {
         </div>
       </main>
 
-      <Footer copyrightHolder={generalSettings.title} />
+      <Footer copyrightHolder={generalSettings?.title} />
     </>
   );
 }

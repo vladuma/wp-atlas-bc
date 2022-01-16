@@ -6,7 +6,7 @@ import { client } from 'client';
 export default Page;
 
 export async function getStaticProps(context: GetStaticPropsContext) {
-  const { paginationTerm } = context.params;
+  const { paginationTerm } : any = context.params;
   if (!(paginationTerm === 'after' || paginationTerm === 'before')) {
     return {
       notFound: true,

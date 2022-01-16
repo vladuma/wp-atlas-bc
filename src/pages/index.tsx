@@ -9,8 +9,8 @@ import { client } from 'client';
 
 export default function Page() {
   const { usePosts, useQuery } = client;
-  const generalSettings = useQuery().generalSettings;
-  const posts = usePosts({
+  const generalSettings : any = useQuery().generalSettings;
+  const posts : any = usePosts({
     first: 6,
     where: {
       categoryName: 'uncategorized',
@@ -20,13 +20,13 @@ export default function Page() {
   return (
     <>
       <Header
-        title={generalSettings.title}
-        description={generalSettings.description}
+        title={generalSettings?.title}
+        description={generalSettings?.description}
       />
 
       <Head>
         <title>
-          {generalSettings.title} - {generalSettings.description}
+          {generalSettings?.title} - {generalSettings?.description}
         </title>
       </Head>
 
@@ -153,12 +153,12 @@ export default function Page() {
           </div>
         </section>
         <Posts
-          posts={posts.nodes}
+          posts={posts?.nodes}
           heading="Latest Posts"
           intro="The Posts component in src/pages/index.tsx shows the latest six posts from the connected WordPress site."
           headingLevel="h2"
           postTitleLevel="h3"
-          id={styles.post_list}
+          id={styles?.post_list}
         />
         <CTA
           title="Questions or comments?"

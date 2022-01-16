@@ -1,3 +1,5 @@
+import 'faust.config';
+
 import React from 'react';
 import Link from 'next/link';
 import type { Post } from 'client';
@@ -34,7 +36,7 @@ function Posts({
         )}
         {intro && <p className={styles.intro}>{intro}</p>}
         <div className="posts">
-          {posts.map((post) => (
+          {posts?.map((post: any) => (
             <div
               className={styles.single}
               key={post.id ?? ''}

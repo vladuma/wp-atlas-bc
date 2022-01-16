@@ -4,24 +4,24 @@ import { Footer, Header, Hero } from 'components';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 
-export interface PostProps {
-  post: Post | Post['preview']['node'] | null | undefined;
-}
+// export interface PostProps {
+//   post: Post | Post['preview']['node'] | null | undefined;
+// }
 
-export function PostComponent({ post }: PostProps) {
+export function PostComponent({ post }: any) {
   const { useQuery } = client;
-  const generalSettings = useQuery().generalSettings;
+  const generalSettings : any = useQuery().generalSettings;
 
   return (
     <>
       <Header
-        title={generalSettings.title}
-        description={generalSettings.description}
+        title={generalSettings?.title}
+        description={generalSettings?.description}
       />
 
       <Head>
         <title>
-          {post?.title()} - {generalSettings.title}
+          {post?.title()} - {generalSettings?.title}
         </title>
       </Head>
 
@@ -36,7 +36,7 @@ export function PostComponent({ post }: PostProps) {
         </div>
       </main>
 
-      <Footer copyrightHolder={generalSettings.title} />
+      <Footer copyrightHolder={generalSettings?.title} />
     </>
   );
 }

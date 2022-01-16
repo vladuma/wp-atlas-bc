@@ -13,9 +13,9 @@ export default function Page() {
   const { query = {} } = useRouter();
   const { postSlug, postCursor } = query;
   const { usePosts, useQuery } = client;
-  const generalSettings = useQuery().generalSettings;
+  const generalSettings : any = useQuery().generalSettings;
   const isBefore = postSlug === 'before';
-  const posts = usePosts({
+  const posts : any = usePosts({
     after: !isBefore ? (postCursor as string) : undefined,
     before: isBefore ? (postCursor as string) : undefined,
     first: !isBefore ? POSTS_PER_PAGE : undefined,
@@ -29,13 +29,13 @@ export default function Page() {
   return (
     <>
       <Header
-        title={generalSettings.title}
-        description={generalSettings.description}
+        title={generalSettings?.title}
+        description={generalSettings?.description}
       />
 
       <Head>
         <title>
-          {generalSettings.title} - {generalSettings.description}
+          {generalSettings?.title} - {generalSettings?.description}
         </title>
       </Head>
 
@@ -50,7 +50,7 @@ export default function Page() {
         <Pagination pageInfo={posts.pageInfo} basePath="/posts" />
       </main>
 
-      <Footer copyrightHolder={generalSettings.title} />
+      <Footer copyrightHolder={generalSettings?.title} />
     </>
   );
 }

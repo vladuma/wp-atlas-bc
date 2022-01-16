@@ -15,7 +15,7 @@ function Header({
   const { menuItems } = client.useQuery()
   const links = menuItems({
     where: { location: MenuLocationEnum.PRIMARY },
-  }).nodes;
+  })?.nodes;
 
   return (
     <header>
@@ -30,12 +30,13 @@ function Header({
         </div>
         <div className={styles.menu}>
           <ul>
-            {links?.map((link) => (
+            {links?.map((link: any) => ( link ?
               <li key={`${link.label}$-menu`}>
                 <Link href={link.url ?? ''}>
-                  <a href={link.url}>{link.label}</a>
+                  <a href={link.url}>{link?.label}</a>
                 </Link>
               </li>
+              : ''
             ))}
             <li>
               <Link href="https://github.com/wpengine/faustjs">

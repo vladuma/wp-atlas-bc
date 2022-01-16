@@ -30,15 +30,15 @@
   "include": ["next-env.d.ts", "**/*.d.ts", "**/*.ts", "**/*.tsx", "**/*.js"],
   "exclude": [
     "node_modules",
-    "./framework/local",
-    "./framework/bigcommerce",
-    "./framework/shopify",
-    "./framework/swell",
-    "./framework/vendure",
-    "./framework/saleor",
-    "./framework/spree",
-    "./framework/ordercloud",
-    "./framework/kibocommerce",
-    "./framework/commercejs"
+    "./src/framework/local",
+    "./src/framework/bigcommerce",
+    "./src/framework/shopify",
+    "./src/framework/swell",
+    "./src/framework/vendure",
+    "./src/framework/saleor",
+    "./src/framework/spree",
+    "./src/framework/ordercloud",
+    "./src/framework/kibocommerce",
+    "./src/framework/commercejs"
   ]
 }

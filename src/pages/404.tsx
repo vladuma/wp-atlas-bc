@@ -4,7 +4,7 @@ import { Header, Hero, Footer } from '../components';
 
 export default function Page(): JSX.Element {
   const { useQuery } = client;
-  const generalSettings = useQuery().generalSettings;
+  const generalSettings: any = useQuery().generalSettings;
 
   return (
     <>

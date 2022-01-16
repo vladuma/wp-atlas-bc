@@ -6,7 +6,7 @@ import { client } from 'client';
 export default Page;
 
 export async function getStaticProps(context: GetStaticPropsContext) {
-  const { postSlug } = context.params;
+  const { postSlug } : any = context.params;
 
   if (!(postSlug === 'after' || postSlug === 'before')) {
     return {

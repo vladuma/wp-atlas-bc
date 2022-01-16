@@ -4,24 +4,24 @@ import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 import { client, Page as PageType } from 'client';
 
-export interface PageProps {
-  page: PageType | PageType['preview']['node'] | null | undefined;
-}
+// export interface PageProps {
+//   page: PageType | PageType['preview']['node'] | null | undefined;
+// }
 
-export function PageComponent({ page }: PageProps) {
+export function PageComponent({ page }: any) {
   const { useQuery } = client;
-  const generalSettings = useQuery().generalSettings;
+  const generalSettings : any = useQuery().generalSettings;
 
   return (
     <>
       <Header
-        title={generalSettings.title}
-        description={generalSettings.description}
+        title={generalSettings?.title}
+        description={generalSettings?.description}
       />
 
       <Head>
         <title>
-          {page?.title()} - {generalSettings.title}
+          {page?.title()} - {generalSettings?.title}
         </title>
       </Head>
 
@@ -36,7 +36,7 @@ export function PageComponent({ page }: PageProps) {
         </div>
       </main>
 
-      <Footer copyrightHolder={generalSettings.title} />
+      <Footer copyrightHolder={generalSettings?.title} />
     </>
   );
 }

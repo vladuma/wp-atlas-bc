@@ -1,6 +1,8 @@
 /**
  * GQTY: You can safely modify this file and Query Fetcher based on your needs
  */
+import 'faust.config';
+
 import type { IncomingMessage } from 'http';
 import { getClient } from '@faustjs/next';
 import {
